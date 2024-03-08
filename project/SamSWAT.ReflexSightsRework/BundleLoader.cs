@@ -31,7 +31,6 @@ namespace SamSWAT.ReflexSightsRework
                     bundles.Remove(key);
                 
                 bundles.Add(key, bundle);
-                Logger.LogError($"Replaced {key}");
             }
         }
     }
