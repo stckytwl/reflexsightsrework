@@ -38,33 +38,36 @@
         <Reference Include="aki-custom">
           <HintPath>..\..\References\aki-custom.dll</HintPath>
         </Reference>
-        <Reference Include="Aki.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="Aki.Common, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\..\References\Aki.Common.dll</HintPath>
         </Reference>
-        <Reference Include="Aki.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="Aki.Reflection, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\..\References\Aki.Reflection.dll</HintPath>
         </Reference>
-        <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="Assembly-CSharp, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\..\References\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="BepInEx">
           <HintPath>..\..\References\BepInEx.dll</HintPath>
         </Reference>
-        <Reference Include="BepInEx, Version=5.4.21.0, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="BepInEx, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\..\References\BepInEx.dll</HintPath>
         </Reference>
-        <Reference Include="Comfort, Version=1.0.0.4, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="Comfort, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\..\References\Comfort.dll</HintPath>
         </Reference>
-        <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+        <Reference Include="Newtonsoft.Json, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
             <HintPath>..\..\References\Newtonsoft.Json.dll</HintPath>
         </Reference>
         <Reference Include="System" />
-        <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="UnityEngine, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\..\References\UnityEngine.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="UnityEngine.CoreModule, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\..\References\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="DissonanceVoip, Version=0.0.0.0, PublicKeyToken=null">
+            <HintPath>..\..\References\DissonanceVoip.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>

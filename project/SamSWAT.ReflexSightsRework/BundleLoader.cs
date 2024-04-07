@@ -23,14 +23,19 @@ namespace SamSWAT.ReflexSightsRework
 
             foreach (var jObj in jArray)
             {
-                var key = jObj["key"].ToString();
+                var key = jObj["key"].ToString();;
                 var path = jObj["path"].ToString();
-                var bundle = new BundleInfo(key, path, jObj["dependencyKeys"].ToObject<string[]>());
+                var data = VFS.ReadFile(path);
+                var crc = Crc32.Compute(data);
+
+                var bundle = new BundleItem(key, crc, jObj["dependencyKeys"].ToObject<string[]>(), Plugin.Directory.Replace("\\", "/"));
                 
                 if (bundles.ContainsKey(key))
-                    bundles.Remove(key);
+                {
+                    bundles.TryRemove(key, out _);
+                }
                 
-                bundles.Add(key, bundle);
+                bundles.TryAdd(key, bundle);
             }
         }
     }

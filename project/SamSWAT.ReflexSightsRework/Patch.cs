@@ -2,10 +2,8 @@
 using System.Reflection;
 using Aki.Reflection.Patching;
 using EFT;
-using EFT.Animations;
 using UnityEngine;
 using HarmonyLib;
-using System;
 
 namespace SamSWAT.ReflexSightsRework
 {
@@ -18,7 +16,7 @@ namespace SamSWAT.ReflexSightsRework
 
         protected override MethodBase GetTargetMethod()
         {
-            return typeof(EFT.Player.FirearmController).GetMethod("set_IsAiming", BindingFlags.NonPublic | BindingFlags.Instance);
+            return typeof(EFT.Player.FirearmController).GetMethod("set_IsAiming", BindingFlags.Public | BindingFlags.Instance);
         }
 
         [PatchPostfix]
@@ -34,8 +32,6 @@ namespace SamSWAT.ReflexSightsRework
 
             if (_instances.Length == 0) return;
             
-            TotalErgonomics = __instance.TotalErgonomics;
-
             // Yoinked from Fontaine's Realism plugin
             Player player = (Player)AccessTools.Field(typeof(EFT.Player.ItemHandsController), "_player").GetValue(__instance);
 
