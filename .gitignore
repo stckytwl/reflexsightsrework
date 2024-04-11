@@ -6,3 +6,5 @@ obj/
 release/
 */obj/
 */bin/
+build_release.bat
+build_debug.bat
