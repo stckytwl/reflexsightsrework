@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Reflection;
 using Aki.Reflection.Patching;
+using Comfort.Common;
 using EFT;
 using UnityEngine;
 using HarmonyLib;
@@ -32,8 +33,7 @@ namespace SamSWAT.ReflexSightsRework
 
             if (_instances.Length == 0) return;
             
-            // Yoinked from Fontaine's Realism plugin
-            Player player = (Player)AccessTools.Field(typeof(EFT.Player.ItemHandsController), "_player").GetValue(__instance);
+            var player = Singleton<GameWorld>.Instance.MainPlayer;
 
             TotalErgonomics = __instance.TotalErgonomics;
             Overweight = player.ProceduralWeaponAnimation.Overweight;

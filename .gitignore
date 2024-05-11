@@ -8,3 +8,13 @@ release/
 */bin/
 build_release.bat
 build_debug.bat
+**/types/
+**/node_modules/
+**/.idea/
+**/tmp/
+**/bin/
+**/obj/
+**/.vs/
+*.code-workspace
+dev/
+project/ReflexSightsRework-ServerMod/bundles
