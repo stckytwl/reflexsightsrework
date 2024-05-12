@@ -7,7 +7,7 @@
 	"isBundleMod": true,
     "akiVersion": ">= 3.8.2",
 	"loadBefore": [],
-	"loadAfter": [],
+	"loadAfter": ["ACOG4Life-OpticRework-SPT-380"],
 	"incompatibilities": [],
 	"contributors": [],
     "scripts": {
