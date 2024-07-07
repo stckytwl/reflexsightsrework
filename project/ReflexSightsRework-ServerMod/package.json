@@ -5,9 +5,9 @@
 	"license": "MIT",
 	"main": "src/mod.js",
 	"isBundleMod": true,
-    "akiVersion": ">= 3.8.2",
+    "sptVersion": ">= 3.9.0",
 	"loadBefore": [],
-	"loadAfter": ["ACOG4Life-OpticRework-SPT-380"],
+	"loadAfter": [],
 	"incompatibilities": [],
 	"contributors": [],
     "scripts": {
@@ -23,7 +23,6 @@
         "eslint": "8.57",
         "fs-extra": "11.2",
         "ignore": "^5.2",
-        "os": "^0.1",
         "tsyringe": "4.8.0",
         "typescript": "5.4",
         "winston": "3.12"

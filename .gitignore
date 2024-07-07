@@ -18,3 +18,4 @@ build_debug.bat
 *.code-workspace
 dev/
 project/ReflexSightsRework-ServerMod/bundles
+**/dist

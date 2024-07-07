@@ -1,9 +1,11 @@
-import {DependencyContainer} from "tsyringe";
-import {IPostAkiLoadMod} from "@spt-aki/models/external/IPostAkiLoadMod";
-import {ILogger} from "@spt-aki/models/spt/utils/ILogger";
+import { DependencyContainer } from "tsyringe";
+import { IPostSptLoadMod } from "@spt/models/external/IPostSptLoadMod";
+import { ILogger } from "@spt/models/spt/utils/ILogger";
 
-class ReflexSightRework implements IPostAkiLoadMod {
-    public postAkiLoad(container: DependencyContainer): void {
+class ReflexSightRework implements IPostSptLoadMod 
+{
+    public postSptLoad(container: DependencyContainer): void
+    {
         // get the logger from the server container
         const logger = container.resolve<ILogger>("WinstonLogger");
 

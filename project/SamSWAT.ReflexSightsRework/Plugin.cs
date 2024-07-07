@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using Aki.Common.Utils;
+using SPT.Common.Utils;
 using BepInEx;
 
 namespace SamSWAT.ReflexSightsRework

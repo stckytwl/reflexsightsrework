@@ -31,43 +31,48 @@
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
+    <PropertyGroup>
+        <TarkovDir Condition=" '$(TarkovDir)' == '' ">D:\Games\SPT - 3.9.0 - Dev\</TarkovDir>
+        <TarkovManagedDir>D:\Games\SPT - 3.9.0 - Dev\EscapeFromTarkov_Data\Managed\</TarkovManagedDir>
+        <TarkovBepInExCoreDir>D:\Games\SPT - 3.9.0 - Dev\BepInEx\core\</TarkovBepInExCoreDir>
+        <TarkovBepInExSptPluginDir>D:\Games\SPT - 3.9.0 - Dev\BepInEx\plugins\spt\</TarkovBepInExSptPluginDir>
+        <TargetSptVersion>3.9.0</TargetSptVersion>
+        <SourceRevisionId>1.0.0</SourceRevisionId>
+    </PropertyGroup>
     <ItemGroup>
         <Reference Include="HarmonyLib">
-          <HintPath>E:\eft\References - 3.8.2\0Harmony.dll</HintPath>
+          <HintPath>$(TarkovBepInExCoreDir)0Harmony.dll</HintPath>
         </Reference>
-        <Reference Include="aki-custom">
-          <HintPath>E:\eft\References - 3.8.2\aki-custom.dll</HintPath>
+        <Reference Include="SPT-Custom">
+          <HintPath>$(TarkovBepInExSptPluginDir)spt-custom.dll</HintPath>
         </Reference>
-        <Reference Include="Aki.Common, Culture=neutral, PublicKeyToken=null">
-            <HintPath>E:\eft\References - 3.8.2\Aki.Common.dll</HintPath>
+        <Reference Include="SPT.Common">
+            <HintPath>$(TarkovBepInExSptPluginDir)spt-common.dll</HintPath>
         </Reference>
-        <Reference Include="Aki.Reflection, Culture=neutral, PublicKeyToken=null">
-            <HintPath>E:\eft\References - 3.8.2\Aki.Reflection.dll</HintPath>
+        <Reference Include="SPT.Reflection">
+            <HintPath>$(TarkovBepInExSptPluginDir)spt-reflection.dll</HintPath>
         </Reference>
-        <Reference Include="Assembly-CSharp, Culture=neutral, PublicKeyToken=null">
-            <HintPath>E:\eft\References - 3.8.2\Assembly-CSharp.dll</HintPath>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(TarkovManagedDir)Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="BepInEx">
-          <HintPath>E:\eft\References - 3.8.2\BepInEx.dll</HintPath>
+          <HintPath>$(TarkovBepInExCoreDir)BepInEx.dll</HintPath>
         </Reference>
-        <Reference Include="BepInEx, Culture=neutral, PublicKeyToken=null">
-            <HintPath>E:\eft\References - 3.8.2\BepInEx.dll</HintPath>
-        </Reference>
-        <Reference Include="Comfort, Culture=neutral, PublicKeyToken=null">
-            <HintPath>E:\eft\References - 3.8.2\Comfort.dll</HintPath>
+        <Reference Include="Comfort">
+            <HintPath>$(TarkovManagedDir)Comfort.dll</HintPath>
         </Reference>
         <Reference Include="Newtonsoft.Json, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-            <HintPath>E:\eft\References - 3.8.2\Newtonsoft.Json.dll</HintPath>
+            <HintPath>$(TarkovManagedDir)Newtonsoft.Json.dll</HintPath>
         </Reference>
         <Reference Include="System" />
-        <Reference Include="UnityEngine, Culture=neutral, PublicKeyToken=null">
-            <HintPath>E:\eft\References - 3.8.2\UnityEngine.dll</HintPath>
+        <Reference Include="UnityEngine">
+            <HintPath>$(TarkovManagedDir)UnityEngine.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.CoreModule, Culture=neutral, PublicKeyToken=null">
-            <HintPath>E:\eft\References - 3.8.2\UnityEngine.CoreModule.dll</HintPath>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(TarkovManagedDir)UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="DissonanceVoip, Version=0.0.0.0, PublicKeyToken=null">
-            <HintPath>E:\eft\References - 3.8.2\DissonanceVoip.dll</HintPath>
+            <HintPath>$(TarkovManagedDir)DissonanceVoip.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
@@ -77,12 +82,21 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
+
+    <!-- Thank you to mpstark for this. Absolute gamechanger. -->
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <ItemGroup>
+            <OutputDLL Include="$(ProjectDir)$(OutDir)$(TargetName).dll"/>
+            <OutputPDB Include="$(ProjectDir)$(OutDir)$(TargetName).pdb"/>
+            <Resources Include="$(ProjectDir)Resources\*"/>
+        </ItemGroup>
+
+        <Copy SourceFiles="@(OutputDLL);@(Resources)" DestinationFolder="$(TarkovDir)BepInEx\plugins\$(TargetName)"/>
+        <Copy SourceFiles="@(OutputPDB)" DestinationFolder="$(TarkovDir)BepInEx\plugins\$(TargetName)"/>
+
+        <RemoveDir Directories="$(ProjectDir)release"/>
+        <Copy SourceFiles="@(OutputDLL);@(Resources)" DestinationFolder="$(ProjectDir)release\$(TargetName)\BepInEx\plugins\$(TargetName)"/>
+        <ZipDirectory SourceDirectory="$(ProjectDir)release\$(TargetName)\" DestinationFile="$(ProjectDir)release\$(TargetName)-$(TargetSptVersion)-$(SourceRevisionId).zip"/>
     </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
 
 </Project>
