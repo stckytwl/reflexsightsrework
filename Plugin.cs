@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-using SPT.Common.Utils;
-using BepInEx;
+﻿using BepInEx;
 
 namespace SamSWAT.ReflexSightsRework
 {

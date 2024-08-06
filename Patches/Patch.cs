@@ -1,10 +1,9 @@
 ﻿using System.Linq;
 using System.Reflection;
-using SPT.Reflection.Patching;
 using Comfort.Common;
 using EFT;
+using SPT.Reflection.Patching;
 using UnityEngine;
-using HarmonyLib;
 
 namespace SamSWAT.ReflexSightsRework
 {
@@ -17,11 +16,11 @@ namespace SamSWAT.ReflexSightsRework
 
         protected override MethodBase GetTargetMethod()
         {
-            return typeof(EFT.Player.FirearmController).GetMethod("set_IsAiming", BindingFlags.Public | BindingFlags.Instance);
+            return typeof(Player.FirearmController).GetMethod("set_IsAiming", BindingFlags.Public | BindingFlags.Instance);
         }
 
         [PatchPostfix]
-        private static void PatchPostfix(EFT.Player.FirearmController __instance, bool value)
+        private static void PatchPostfix(Player.FirearmController __instance, bool value)
         {
             if (__instance == null) return;
 
@@ -32,13 +31,16 @@ namespace SamSWAT.ReflexSightsRework
             }
 
             if (_instances.Length == 0) return;
-            
+
             var player = Singleton<GameWorld>.Instance.MainPlayer;
 
             TotalErgonomics = __instance.TotalErgonomics;
             Overweight = player.ProceduralWeaponAnimation.Overweight;
 
-            foreach (var instance in _instances) instance.enabled = value;
+            foreach (var instance in _instances)
+            {
+                instance.enabled = value;
+            }
         }
     }
 }

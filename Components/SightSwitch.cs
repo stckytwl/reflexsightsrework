@@ -6,9 +6,9 @@ namespace SamSWAT.ReflexSightsRework
 {
     public class SightSwitch : MonoBehaviour
     {
-        #pragma warning disable CS0649
+#pragma warning disable CS0649
         [SerializeField] private GameObject normalMesh;
-        #pragma warning disable CS0649
+#pragma warning disable CS0649
         [SerializeField] private GameObject adsMesh;
 
         private void OnEnable()
