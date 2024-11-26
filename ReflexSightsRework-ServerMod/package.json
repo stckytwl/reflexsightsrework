@@ -1,11 +1,11 @@
 {
 	"name": "ReflexSightsRework",
 	"version": "1.0.0",
-	"author": "stcky.twl",
+	"author": "SamSwat",
 	"license": "MIT",
 	"main": "src/mod.js",
 	"isBundleMod": true,
-    "sptVersion": ">= 3.9.0",
+    "sptVersion": ">= 3.10",
 	"loadBefore": [],
 	"loadAfter": [],
 	"incompatibilities": [],

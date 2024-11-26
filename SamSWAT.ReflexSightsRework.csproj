@@ -32,11 +32,11 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <PropertyGroup>
-        <TarkovDir Condition=" '$(TarkovDir)' == '' ">/mnt/f6ff0a3b-a5ff-4f22-b9f7-8a646927903f/Link to SPT - 3.9.4 Dev/</TarkovDir>
+        <TarkovDir Condition=" '$(TarkovDir)' == '' ">C:\Games\SPT - 3.10/</TarkovDir>
         <TarkovManagedDir>$(TarkovDir)EscapeFromTarkov_Data/Managed/</TarkovManagedDir>
         <TarkovBepInExCoreDir>$(TarkovDir)BepInEx/core/</TarkovBepInExCoreDir>
         <TarkovBepInExSptPluginDir>$(TarkovDir)BepInEx/plugins/spt/</TarkovBepInExSptPluginDir>
-        <TargetSptVersion>3.9.4</TargetSptVersion>
+        <TargetSptVersion>3.10.0</TargetSptVersion>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="HarmonyLib">
@@ -90,11 +90,11 @@
             <Resources Include="$(ProjectDir)Resources\*"/>
         </ItemGroup>
 
-        <Copy SourceFiles="@(OutputDLL);@(Resources)" DestinationFolder="$(TarkovDir)BepInEx\plugins\$(TargetName)"/>
-        <Copy SourceFiles="@(OutputPDB)" DestinationFolder="$(TarkovDir)BepInEx\plugins\$(TargetName)"/>
+        <Copy SourceFiles="@(OutputDLL);@(Resources)" DestinationFolder="$(TarkovDir)BepInEx\plugins\"/>
+        <Copy SourceFiles="@(OutputPDB)" DestinationFolder="$(TarkovDir)BepInEx\plugins\"/>
 
         <RemoveDir Directories="$(ProjectDir)release"/>
-        <Copy SourceFiles="@(OutputDLL);@(Resources)" DestinationFolder="$(ProjectDir)release\$(TargetName)\BepInEx\plugins\$(TargetName)"/>
+        <Copy SourceFiles="@(OutputDLL);@(Resources)" DestinationFolder="$(ProjectDir)release\$(TargetName)\BepInEx\plugins\"/>
         <ZipDirectory SourceDirectory="$(ProjectDir)release\$(TargetName)\" DestinationFile="$(ProjectDir)release\$(TargetName)-$(TargetSptVersion).zip"/>
     </Target>
 
