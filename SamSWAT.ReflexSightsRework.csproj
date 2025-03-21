@@ -32,11 +32,11 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <PropertyGroup>
-        <TarkovDir Condition=" '$(TarkovDir)' == '' ">C:\Games\SPT - 3.10/</TarkovDir>
+        <TarkovDir Condition=" '$(TarkovDir)' == '' ">C:/Games/SPT - 3.11/</TarkovDir>
         <TarkovManagedDir>$(TarkovDir)EscapeFromTarkov_Data/Managed/</TarkovManagedDir>
         <TarkovBepInExCoreDir>$(TarkovDir)BepInEx/core/</TarkovBepInExCoreDir>
         <TarkovBepInExSptPluginDir>$(TarkovDir)BepInEx/plugins/spt/</TarkovBepInExSptPluginDir>
-        <TargetSptVersion>3.10.0</TargetSptVersion>
+        <TargetSptVersion>3.11.0</TargetSptVersion>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="HarmonyLib">
